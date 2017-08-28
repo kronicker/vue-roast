@@ -1,4 +1,6 @@
 # vue-roast
+=========
+
 The plugin for easy display of toast messages.
 
 ## Install
@@ -21,3 +23,13 @@ Outside of component
 ```js
 Vue.toast(toast);
 ```
+
+## Tests
+
+`npm test`
+
+## Contributing
+
+Please follow selected coding style guide.
+Add unit tests for any new or changed functionality.
+Lint and test your code.
