@@ -1,0 +1,27 @@
+{
+  "name": "vue-roast",
+  "version": "0.0.1",
+  "description": "Vue.js plugin for easy display of toast messages",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kronicker/vue-roast.git"
+  },
+  "keywords": [
+    "vue",
+    "toast",
+    "message",
+    "vuejs",
+    "javascript",
+    "js",
+    "popup"
+  ],
+  "author": "kronicker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kronicker/vue-roast/issues"
+  },
+  "homepage": "https://github.com/kronicker/vue-roast#readme"
+}
