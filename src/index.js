@@ -5,9 +5,13 @@ import ToastContainer from './Container.vue';
 // Declare internals
 
 const internals = {
-  expiry: 5000,
-  threshold: 3,
   cache: []
+};
+
+internals.setDefaults = function(config = {}) {
+  const { ttl } = config || 5000;
+  const { threshold } = config || 3;
+  Object.assign(internals, { ttl, threshold });
 };
 
 internals.id = function(exclude) {
@@ -20,7 +24,7 @@ internals.id = function(exclude) {
 };
 
 internals.Timer = class {
-  constructor(ttl = 3000, action = Function.prototype) {
+  constructor(ttl = internals.ttl, action = Function.prototype) {
     this.ttl = ttl;
     this.action = action;
   }
@@ -37,7 +41,7 @@ internals.Timer = class {
 };
 
 /**
- * @param {Object} message - toast message
+ * @param {string} message - toast message
  * @param {Object} options - toast options
  * @param {number} options.ttl - time to live in milliseconds
  * @param {number} options.truncateAfter - max message char length to display
@@ -46,7 +50,7 @@ internals.Timer = class {
  * @returns {undefined}
  */
 internals.toast = function(message, options = {}) {
-  if (internals.cache.length === internals.threshold) {
+  if (internals.threshold && internals.cache.length === internals.threshold) {
     internals.cache.shift();
   }
 
@@ -55,14 +59,16 @@ internals.toast = function(message, options = {}) {
     options,
     id: internals.id(internals.cache.map(el => el.id))
   };
-  toast.timer = new internals.Timer(options.ttl || internals.expiry);
+  toast.timer = new internals.Timer(options.ttl);
   internals.cache.push(toast);
 };
 
 // Define exports
 
 export default {
-  install(Vue) {
+  install(Vue, config) {
+    internals.setDefaults(config);
+
     const Container = Vue.extend(ToastContainer);
     const container = new Container({ propsData: { toasts: internals.cache } }).$mount();
 
