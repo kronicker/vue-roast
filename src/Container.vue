@@ -17,6 +17,19 @@
 <style lang="scss" scoped>
   @import "~styles/constants";
 
+  // Slide fade transition
+  .slide-fade-enter-active {
+    transition: transform .75s;
+  }
+
+  .slide-fade-leave-active {
+    transition: transform .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+
+  .slide-fade-enter, .slide-fade-leave-to {
+    transform: translateX(-100%);
+  }
+
   .toast-container {
     position: fixed;
     bottom: 15px;
@@ -36,7 +49,7 @@
     props: { toasts: Array },
     methods: {
       close(id) {
-        const index = this.toasts.findIndex((el) => el.id === id);
+        const index = this.toasts.findIndex(el => el.id === id);
         this.toasts.splice(index, 1);
       }
     },

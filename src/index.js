@@ -53,7 +53,7 @@ internals.toast = function(message, options = {}) {
   const toast = {
     message,
     options,
-    id: internals.id(internals.cache.map((el) => el.id))
+    id: internals.id(internals.cache.map(el => el.id))
   };
   toast.timer = new internals.Timer(options.ttl || internals.expiry);
   internals.cache.push(toast);

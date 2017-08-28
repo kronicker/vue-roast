@@ -1,31 +1,29 @@
 <template>
   <section class="toast-message"
-    :class="[ message.level, group ]"
+    :class="[ message.level, message.group ]"
     @mouseenter="timer.stop()"
     @mouseleave="timer.restart(timer.ttl/2)"
     role="alert">
     <div class="toast-header">
-      <h4 class="upper">{{ message.title.key | dissectMsg }}</h4>
+      <h4 class="upper">{{ message.title }}</h4>
       <i @click="close" class="icon-close" role="button" :aria-label="'common/close' | msg"></i>
     </div>
     <div class="toast-body">
       <p>
-        <span @click="interceptLink($event)" v-html="content"></span>
+        <span>{{ content }}</span>
         <span v-if="options.action"
           @click="options.action.method"
           class="nd-link alt"
           role="button">
-          {{ options.action.placeholder.key | dissectMsg(options.action.placeholder.args) }}
+          {{ options.action.placeholder }}
         </span>
       </p>
     </div>
     <div class="toast-footer">
       <p class="smaller">
-        <span class="lowercase">{{ 'common/from' | msg }} {{ message.creator.displayName | dissectMsg }}</span>
+        <span class="lowercase">{{ 'common/from' | msg }} {{ message.creator.displayName }}</span>
         <span class="pipe">|</span>
-        <span>{{ message.createdAt | date('medium') }}</span>
-        <span class="pipe">|</span>
-        <span>@{{ message.createdAt | time('short') }}</span>
+        <span>{{ message.createdAt}}</span>
       </p>
     </div>
   </section>
@@ -60,11 +58,6 @@
       margin: 0 5px;
     }
 
-    &.cr { border-left-color: #008080 }
-    &.ev { border-left-color: #fff000 }
-    &.ar { border-left-color: #0000ff }
-    &.th { border-left-color: #008000 }
-
     &.error {
       background-color: #f2dede;
       border-left-color: #ebccd1;
@@ -89,18 +82,15 @@
 
 
 <script>
-  import truncate from 'lodash/truncate';
-
-  import GoogleAuthorizeWindow from 'common/GoogleAuthorizeWindow';
-  import Group from 'share/Group';
+  import truncate from 'lodash.truncate';
 
   export default {
     props: {
       id: Number,
       message: {
-        title: Object,
-        content: Object,
-        creator: Object,
+        title: String,
+        content: String,
+        creator: String,
         level: String,
         group: String,
         createdAt: Date
@@ -114,21 +104,10 @@
       },
       timer: Object
     },
-    data() {
-      return {
-        htmlRegex: /<[a-z][\s\S]*>/i
-      };
-    },
     computed: {
-      group() {
-        return this.message.group || Group.OTHER;
-      },
       content() {
+        let content = this.message.content;
         const maxLength = this.options.truncateAfter;
-        let content = this.$options.filters.dissectMsg(this.message.content.key, this.message.content.args);
-        if (this.htmlRegex.test(content)) {
-          return content;
-        }
 
         if (content.length > maxLength) {
           content = truncate(content, { length: maxLength });
@@ -138,9 +117,6 @@
       }
     },
     methods: {
-      interceptLink(event) {
-        GoogleAuthorizeWindow.linkInterceptor(event);
-      },
       close() {
         this.$emit('close', this.id);
       }
