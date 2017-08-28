@@ -41,7 +41,7 @@ internals.Timer = class {
 };
 
 /**
- * @param {string} message - toast message
+ * @param {Object} message - toast message
  * @param {Object} options - toast options
  * @param {number} options.ttl - time to live in milliseconds
  * @param {number} options.truncateAfter - max message char length to display

@@ -1,6 +1,6 @@
 <template>
   <section class="toast-message"
-    :class="[ message.level, message.group ]"
+    :class="message.level"
     @mouseenter="timer.stop()"
     @mouseleave="timer.restart(timer.ttl/2)"
     role="alert">
@@ -90,7 +90,6 @@
         content: String,
         creator: String,
         level: String,
-        group: String,
         createdAt: Date
       },
       options: {
