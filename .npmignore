@@ -3,6 +3,7 @@
 .DS_Store
 .editorconfig
 .eslintrc
+.node-version
 .git*
 .npmignore
 test/
