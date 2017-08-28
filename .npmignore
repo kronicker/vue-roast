@@ -7,3 +7,4 @@
 .git*
 .npmignore
 test/
+poi.config.js
