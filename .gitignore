@@ -3,6 +3,10 @@ logs
 *.log
 npm-debug.log*
 
+# Build artifacts
+dist/*
+!dist/.gitkeep
+
 # Dependency directories
 node_modules/
 

@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Vue.js plugin for easy display of toast messages",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "poi build",
+    "clean": "del-cli dist/* !dist/.gitkeep"
   },
   "repository": {
     "type": "git",
@@ -29,9 +31,13 @@
   },
   "homepage": "https://github.com/kronicker/vue-roast#readme",
   "devDependencies": {
+    "del-cli": "^1.1.0",
     "eslint": "^4.5.0",
     "eslint-config-eslint": "^4.0.0",
-    "eslint-plugin-html": "^3.2.0"
+    "eslint-plugin-html": "^3.2.0",
+    "node-sass": "^4.5.3",
+    "poi": "^9.3.3",
+    "sass-loader": "^6.0.6"
   },
   "dependencies": {
     "lodash.truncate": "^4.4.2"
