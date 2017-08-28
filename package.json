@@ -28,5 +28,8 @@
     "eslint": "^4.5.0",
     "eslint-config-eslint": "^4.0.0",
     "eslint-plugin-html": "^3.2.0"
+  },
+  "dependencies": {
+    "lodash.truncate": "^4.4.2"
   }
 }
