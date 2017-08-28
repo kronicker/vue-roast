@@ -18,7 +18,11 @@
     "js",
     "popup"
   ],
-  "author": "kronicker",
+  "author": {
+    "name": "Toma Zelic",
+    "email": "zelic.toma@gmail.com",
+    "url": "https://github.com/kronicker"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kronicker/vue-roast/issues"
