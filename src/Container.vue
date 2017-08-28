@@ -27,7 +27,9 @@
   .slide-fade-enter, .slide-fade-leave-to {
     transform: translateX(-100%);
   }
+</style>
 
+<style lang="scss">
   .toast-container {
     position: fixed;
     bottom: 15px;

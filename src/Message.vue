@@ -30,7 +30,7 @@
 </template>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
   .toast-message {
     position: relative;
     margin-bottom: 10px;
