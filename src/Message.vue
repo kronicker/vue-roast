@@ -31,19 +31,17 @@
 
 
 <style lang="scss" scoped>
-  @import "~styles/constants";
-
   .toast-message {
     position: relative;
     margin-bottom: 10px;
     padding: 0 10px;
     background-color: white;
-    border: $normal-border;
-    border-left: 5px solid $main-accent-color;
-    color: $light-txt-color;
+    border: 1px solid #e3e3e3;
+    border-left: 5px solid #f58989;
+    color: #adadad;
 
     .toast-header {
-      color: $lighter-txt-color;
+      color: #f9fafb;
       margin-top: 15px;
 
       i {

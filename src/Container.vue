@@ -15,8 +15,6 @@
 
 
 <style lang="scss" scoped>
-  @import "~styles/constants";
-
   // Slide fade transition
   .slide-fade-enter-active {
     transition: transform .75s;
@@ -37,7 +35,7 @@
     padding: 0 15px;
     width: 100%;
     max-width: 380px;
-    z-index: $overlay-z;
+    z-index: 999;
   }
 </style>
 
