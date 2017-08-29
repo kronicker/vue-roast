@@ -9,7 +9,7 @@
     "build": "poi build --config build/poi.prod.config.js",
     "demo:build": "poi build --config build/poi.dev.config.js",
     "demo:deploy": "npm run dev:build && surge",
-    "clean": "del-cli dist/* !dist/.gitkeep",
+    "clean": "del-cli dist/* !dist/.gitkeep demo/* !demo/.gitkeep",
     "release": "npm run clean && npm run build"
   },
   "repository": {
@@ -33,9 +33,8 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kronicker/vue-roast/issues"
+    "url": "https://ub.com/kronicker/vue-roast/issues"
   },
-  "homepage": "https://github.com/kronicker/vue-roast#readme",
   "devDependencies": {
     "del-cli": "^1.1.0",
     "eslint": "^4.5.0",

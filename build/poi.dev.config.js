@@ -1,8 +1,9 @@
 module.exports = {
-  entry: './demo/main.js',
+  entry: './examples/main.js',
   vendor: false,
+  dist: './demo',
   html: {
-    template: './demo/index.html'
+    template: './examples/index.html'
   },
   filename: {
     js: 'demo.min.js',
