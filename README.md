@@ -21,7 +21,7 @@ Vue.use(VueRoast, config);
 ### API
 In component:
 ```js
-this.$toast(toast);
+this.$toast(message, options);
 ```
 
 Outside of component
