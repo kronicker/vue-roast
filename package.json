@@ -4,9 +4,13 @@
   "description": "Vue.js plugin for easy display of toast messages",
   "main": "dist/vue-roast.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "poi build",
-    "clean": "del-cli dist/* !dist/.gitkeep"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "dev": "poi --config build/poi.dev.config.js",
+    "build": "poi build --config build/poi.prod.config.js",
+    "demo:build": "poi build --config build/poi.dev.config.js",
+    "demo:deploy": "npm run dev:build && surge",
+    "clean": "del-cli dist/* !dist/.gitkeep",
+    "release": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
