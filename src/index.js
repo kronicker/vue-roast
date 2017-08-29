@@ -9,8 +9,8 @@ const internals = {
 };
 
 internals.setDefaults = function(config = {}) {
-  const { ttl } = config || 5000;
-  const { threshold } = config || 3;
+  const ttl = config.ttl || 5000;
+  const threshold = config.threshold || 3;
   Object.assign(internals, { ttl, threshold });
 };
 
@@ -49,7 +49,7 @@ internals.Timer = class {
  * @param {Function} options.action.method - method to be invoked on click
  * @returns {undefined}
  */
-internals.toast = function(message, options = {}) {
+internals.toast = function(message = {}, options = {}) {
   if (internals.threshold && internals.cache.length === internals.threshold) {
     internals.cache.shift();
   }

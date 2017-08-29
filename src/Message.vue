@@ -6,7 +6,7 @@
     role="alert">
     <div class="toast-header">
       <h4 class="upper">{{ message.title }}</h4>
-      <i @click="close" class="icon-close" role="button" :aria-label="'common/close' | msg"></i>
+      <i @click="close" class="icon-close" role="button"></i>
     </div>
     <div class="toast-body">
       <p>
@@ -21,7 +21,7 @@
     </div>
     <div class="toast-footer">
       <p class="smaller">
-        <span class="lowercase">{{ 'common/from' | msg }} {{ message.creator.displayName }}</span>
+        <span class="lowercase">{{ message.creator }}</span>
         <span class="pipe">|</span>
         <span>{{ message.createdAt}}</span>
       </p>
@@ -103,7 +103,7 @@
     },
     computed: {
       content() {
-        let content = this.message.content;
+        let content = this.message.content || '';
         const maxLength = this.options.truncateAfter;
 
         if (content.length > maxLength) {
