@@ -1,6 +1,6 @@
-<p align="center"><a href="http://vue-roast.surge.sh" target="_blank"><img width="250"src="https://raw.githubusercontent.com/kronicker/vue-roast/master/demo/logo.png"></a></p>
+<p align="center"><a href="http://vue-roast.surge.sh" target="_blank"><img width="350"src="https://raw.githubusercontent.com/kronicker/vue-roast/master/demo/logo.png"></a></p>
 
-<p align="center">The plugin for easy display of toast messages.</p>
+<p align="center">Vue.js plugin for easy display of toast messages.</p>
 
 ## [Demo](https://vue-roast.surge.sh)
 

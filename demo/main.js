@@ -1,11 +1,12 @@
 import Vue from 'vue';
 import VueRoast from '../src';
 
-import Demo from './Demo.vue';
+import App from './App.vue';
+import 'wingcss';
 
 Vue.use(VueRoast);
 
 new Vue({ // eslint-disable-line no-new
   el: '#demo',
-  render: h => h(Demo)
+  render: h => h(App)
 });

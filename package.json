@@ -8,8 +8,8 @@
     "dev": "poi --config build/poi.dev.config.js",
     "build": "poi build --config build/poi.prod.config.js",
     "demo:build": "poi build --config build/poi.dev.config.js",
-    "demo:deploy": "npm run dev:build && surge",
-    "clean": "del-cli dist/* !dist/.gitkeep demo/* !demo/.gitkeep",
+    "demo:deploy": "npm run demo:build && surge -d https://vue-roast.surge.sh -p ./dist-demo",
+    "clean": "del-cli dist/* !dist/.gitkeep dist-demo/* !dist-demo/.gitkeep",
     "release": "npm run clean && npm run build"
   },
   "repository": {
@@ -43,7 +43,8 @@
     "node-sass": "^4.5.3",
     "poi": "^9.3.3",
     "sass-loader": "^6.0.6",
-    "vue": "^2.4.2"
+    "vue": "^2.4.2",
+    "wingcss": "^1.0.0-beta"
   },
   "dependencies": {
     "lodash.truncate": "^4.4.2"
