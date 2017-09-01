@@ -1,7 +1,7 @@
 module.exports = {
   entry: './demo/main.js',
-  vendor: false,
   dist: './docs',
+  vendor: false,
   html: {
     template: './demo/index.html'
   },
