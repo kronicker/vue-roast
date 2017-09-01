@@ -6,8 +6,6 @@ npm-debug.log*
 # Build artifacts
 dist/*
 !dist/.gitkeep
-dist-demo/*
-!dist-demo/.gitkeep
 
 # Dependency directories
 node_modules/

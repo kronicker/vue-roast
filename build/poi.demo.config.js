@@ -1,13 +1,13 @@
 module.exports = {
   entry: './demo/main.js',
   vendor: false,
-  dist: './dist-demo',
+  dist: './docs',
   html: {
     template: './demo/index.html'
   },
   copy: { from: './demo/logo.png', to: 'logo.png' },
   filename: {
-    js: 'demo.min.js',
+    js: 'docs.min.js',
     css: 'style.css'
   }
 };
