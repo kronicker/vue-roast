@@ -7,6 +7,6 @@ module.exports = {
   copy: { from: './src/docs/logo.png', to: 'logo.png' },
   filename: {
     js: '[name].min.js',
-    css: 'style.css'
+    css: '[name].css'
   }
 };
