@@ -1,7 +1,10 @@
 module.exports = {
   entry: './src/docs/main.js',
+  webpack(config) {
+    config.output.publicPath = './';
+    return config;
+  },
   dist: './docs',
-  homepage: '/vue-roast/',
   html: {
     template: './src/docs/index.html'
   },
