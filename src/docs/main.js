@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VueRoast from '../src';
+import VueRoast from '../';
 
 import App from './App.vue';
 import 'wingcss';

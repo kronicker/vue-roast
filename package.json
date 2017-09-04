@@ -5,11 +5,11 @@
   "main": "dist/vue-roast.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "dev": "poi --config build/poi.demo.config.js",
-    "build": "poi build --config build/poi.prod.config.js",
-    "demo:build": "poi build --config build/poi.demo.prod.config.js",
-    "demo:deploy": "npm run demo:build && surge -d https://vue-roast.surge.sh -p ./dist-demo",
-    "clean": "del-cli dist/* !dist/.gitkeep dist-demo/* !dist-demo/.gitkeep",
+    "dev": "poi --config build/poi.docs.dev.config.js",
+    "build": "poi build --config build/poi.docs.prod.config.js",
+    "docs:build": "poi build --config build/poi.docs.prod.config.js",
+    "docs:deploy": "npm run docs:build && surge -d https://vue-roast.surge.sh -p ./docs",
+    "clean": "del-cli dist/* !dist/.gitkeep docs/* !docs/.gitkeep",
     "release": "npm run clean && npm run build"
   },
   "repository": {

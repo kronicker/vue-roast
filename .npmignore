@@ -8,4 +8,4 @@
 .npmignore
 test/
 build/
-demo/
+src/docs

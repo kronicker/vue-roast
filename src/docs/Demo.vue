@@ -8,6 +8,8 @@
         <input v-model="message.title" type="text">
         <label>Creator</label>
         <input v-model="message.creator" type="text">
+      </div>
+      <div class="col">
         <label>Content</label>
         <input v-model="message.content" type="text">
         <label>Level</label>
@@ -24,10 +26,14 @@
 
 
 <style lang="scss" scoped>
-input,
-select {
-  height: 35px;
-}
+  input,
+  select {
+    max-width: 100%;
+    height: 35px;
+    padding: 0;
+  }
+
+  input { text-indent: 5px; }
 </style>
 
 
@@ -46,7 +52,7 @@ export default {
   },
   methods: {
     toast() {
-      this.$toast(this.message);
+      this.$toast(Object.assign({}, this.message));
     }
   }
 };
