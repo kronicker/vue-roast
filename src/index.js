@@ -1,43 +1,33 @@
-// Load modules
+import Timer from './Timer';
+import ToastContainer from './components/Container';
 
-import ToastContainer from './Container.vue';
+const DEFAULT_POSITION = 'bottom-left';
+const DEFAULT_TTL = 5000;
+const DEFAULT_THRESHOLD = 3;
 
-// Declare internals
+const cache = [];
+const defaults = {};
 
-const internals = {
-  cache: []
-};
+function getTransition(position) {
+  if (position === 'top-middle') return 'slide-fade-down';
+  if (position === 'bottom-middle') return 'slide-fade-up';
+  if (position.includes('right')) return 'slide-fade-left';
+  return 'slide-fade-right';
+}
 
-internals.setDefaults = function(config = {}) {
-  const ttl = config.ttl || 5000;
-  const threshold = config.threshold || 3;
-  Object.assign(internals, { ttl, threshold });
-};
+function setDefaults(config = {}) {
+  const ttl = config.ttl || DEFAULT_TTL;
+  const threshold = config.threshold || DEFAULT_THRESHOLD;
+  const position = config.positionClass || DEFAULT_POSITION;
+  const transition = getTransition(position);
+  const pushAction = position.includes('top') ? 'unshift' : 'push';
+  Object.assign(defaults, { ttl, threshold, position, transition, pushAction });
+}
 
-internals.id = function(exclude) {
+function uniqueId(exclude) {
   const id = Math.ceil(Date.now() * Math.random());
-  if (exclude.includes(id)) {
-    return internals.id(exclude);
-  }
-
+  if (exclude.includes(id)) return uniqueId(exclude);
   return id;
-};
-
-internals.Timer = class {
-  constructor(ttl = internals.ttl, action = Function.prototype) {
-    this.ttl = ttl;
-    this.action = action;
-  }
-  start(ttl = this.ttl) {
-    this.timer = setTimeout(this.action, ttl);
-  }
-  stop() {
-    clearTimeout(this.timer);
-  }
-  restart(ttl = this.ttl) {
-    this.stop();
-    this.start(ttl);
-  }
 };
 
 /**
@@ -49,32 +39,28 @@ internals.Timer = class {
  * @param {Function} options.action.method - method to be invoked on click
  * @returns {undefined}
  */
-internals.toast = function(message = {}, options = {}) {
-  if (internals.threshold && internals.cache.length === internals.threshold) {
-    internals.cache.shift();
-  }
+function toast(message = {}, options = {}) {
+  if (!message.title && !message.body && !message.footer) return;
 
-  const toast = {
-    message,
-    options,
-    id: internals.id(internals.cache.map(el => el.id))
-  };
-  toast.timer = new internals.Timer(options.ttl);
-  internals.cache.push(toast);
+  if (cache.length === defaults.threshold) cache.shift();
+  options.ttl = options.ttl || defaults.ttl;
+
+  const id = uniqueId(cache.map(el => el.id))
+  const timer = new Timer(options.ttl);
+  cache[defaults.pushAction]({ id, message, options, timer });
 };
 
-// Define exports
-
 export default {
-  install(Vue, config) {
-    internals.setDefaults(config);
+  install(Vue, config = {}) {
+    setDefaults(config);
 
     const Container = Vue.extend(ToastContainer);
-    const container = new Container({ propsData: { toasts: internals.cache } }).$mount();
+    const { position, transition } = defaults;
+    const container = new Container({ propsData: { position, transition, toasts: cache } }).$mount();
 
     document.body.appendChild(container.$el);
 
-    Vue.toast = internals.toast;
-    Vue.prototype.$toast = internals.toast;
+    Vue.toast = toast;
+    Vue.prototype.$toast = toast;
   }
 };

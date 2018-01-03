@@ -1,0 +1,36 @@
+
+.top { top: 15px; }
+.bottom { bottom: 15px }
+.left { left: 0 }
+.right { right: 0 }
+.middle {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.top-left {
+  @extend .top;
+  @extend .left;
+}
+.top-middle {
+  @extend .top;
+  @extend .middle;
+}
+.top-right {
+  @extend .top;
+  @extend .right;
+}
+.bottom-left {
+  @extend .bottom;
+  @extend .left;
+}
+.bottom-middle {
+  @extend .bottom;
+  @extend .middle;
+}
+.bottom-right {
+  @extend .bottom;
+  @extend .right;
+}
+
+
+
