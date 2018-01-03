@@ -10,7 +10,7 @@
     </div>
     <div class="toast-body">
       <p>
-        <span>{{ content }}</span>
+        <span>{{ message.content | truncate(options.truncateAfter) }}</span>
         <span v-if="options.action"
           @click="options.action.method"
           class="nd-link alt"
@@ -80,8 +80,6 @@
 
 
 <script>
-  import truncate from 'lodash.truncate';
-
   export default {
     props: {
       id: Number,
@@ -101,16 +99,9 @@
       },
       timer: Object
     },
-    computed: {
-      content() {
-        let content = this.message.content || '';
-        const maxLength = this.options.truncateAfter;
-
-        if (content.length > maxLength) {
-          content = truncate(content, { length: maxLength });
-        }
-
-        return content;
+    filters: {
+      truncate(str, maxLen) {
+        return maxLen ? str : str.substr(0, maxLen - 1);
       }
     },
     methods: {
