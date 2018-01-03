@@ -1,6 +1,6 @@
 {
   "name": "vue-roast",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Vue.js plugin for easy display of toast messages",
   "main": "dist/vue-roast.min.js",
   "scripts": {
@@ -8,7 +8,6 @@
     "dev": "poi --config build/poi.docs.dev.config.js",
     "build": "poi build --config build/poi.prod.config.js",
     "docs:build": "poi build --config build/poi.docs.prod.config.js",
-    "docs:deploy": "npm run docs:build && surge -d https://vue-roast.surge.sh -p ./docs",
     "clean": "del-cli dist/* !dist/.gitkeep docs/* !docs/.gitkeep !docs/CNAME",
     "release": "npm run clean && npm run build"
   },
