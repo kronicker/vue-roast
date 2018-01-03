@@ -1,8 +1,12 @@
-<p align="center"><a href="https://vue-roast.surge.sh" target="_blank"><img width="350"src="https://raw.githubusercontent.com/kronicker/vue-roast/master/demo/logo.png"></a></p>
+<p align="center">
+  <a href="https://vue-roast.js.org" target="_blank">
+    <img width="350"src="https://raw.githubusercontent.com/kronicker/vue-roast/master/docs/src/logo.png">
+  </a>
+</p>
 
 <p align="center">Vue.js plugin for easy display of toast messages.</p>
 
-## [Demo](https://vue-roast.surge.sh)
+## [Demo](https://vue-roast.js.org)
 
 ## Install
 
@@ -15,11 +19,11 @@ import VueRoast from 'vue-roast';
 Vue.use(VueRoast, config);
 ```
 #### Config
-| Prop          | Type          | Description               |Default   |
-| ------------- |---------------|---------------------------|:--------:|
+| Prop          | Type          | Description               | Default  | Possible
+| ------------- |---------------|--------------------|:--------:|-|
 | ttl           | Number        | Default toast message ttl  | 5000      |
-| threshold      | Number \| Boolean | Max number of displayed toasts at a time (false to disable) | 3 |
-
+| threshold     | Number \| Boolean | Max number of displayed toasts at a time (false to disable) | 3 |
+| position      | String | Position of toast messages | 'bottom-left' | ['top', 'bottom']-['left', 'middle', 'right']
 
 ### API
 In component:
@@ -33,13 +37,12 @@ Vue.toast(message, options);
 ```
 
 #### Message
-| Prop               | Type     |
-| ------------------ | -------- |
-| title              | String   |
-| content            | String   |
-| creator            | String   |
-| level              | String   |
-| createdAt          | Date     |
+| Prop               | Type     | Default     | Possible     |
+| ------------------ | -------- | :---------: | -------- |
+| title              | String   | '' |
+| body               | String   | '' |
+| footer             | String   | '' |
+| level              | String   | 'info' | ['info', 'warning', 'error']
 #### Options
 | Prop               | Type     | Description                               |
 | ------------------ | -------- | ----------------------------------------- |
