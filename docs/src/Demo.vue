@@ -6,12 +6,12 @@
       <div class="col">
         <label>Title</label>
         <input v-model="message.title" type="text">
-        <label>Creator</label>
-        <input v-model="message.creator" type="text">
+        <label>Footer</label>
+        <input v-model="message.footer" type="text">
       </div>
       <div class="col">
-        <label>Content</label>
-        <input v-model="message.content" type="text">
+        <label>Body</label>
+        <input v-model="message.body" type="text">
         <label>Level</label>
         <select v-model="message.level">
           <option value="info">Info</option>
@@ -43,10 +43,9 @@ export default {
     return {
       message: {
         title: '',
-        content: '',
-        creator: '',
-        level: 'info',
-        createdAt: new Date()
+        body: '',
+        footer: '',
+        level: 'info'
       }
     };
   },

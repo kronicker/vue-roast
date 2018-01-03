@@ -31,14 +31,6 @@ import Hero from './Hero.vue';
 import Navbar from './Navbar.vue';
 
 export default {
-  methods: {
-    toast() {
-      this.$toast({
-        title: 'Toast',
-        content: 'New toast'
-      });
-    }
-  },
   components: {
     Demo,
     Guide,

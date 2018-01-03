@@ -3,7 +3,9 @@
     <div id="install">
       <h2>Install</h2>
       <h5>Via npm</h5>
-      <p><code>npm i vue-roast</code></p>
+      <p>
+        <code>npm i vue-roast</code>
+      </p>
       <h5>Register plugin</h5>
       <pre>
         <code>
@@ -19,6 +21,7 @@
             <th>Type</th>
             <th>Description</th>
             <th style="text-align:center">Default</th>
+            <th>Possible</th>
           </tr>
         </thead>
         <tbody>
@@ -27,12 +30,21 @@
             <td>Number</td>
             <td>Default toast message ttl</td>
             <td style="text-align:center">5000</td>
+            <td></td>
           </tr>
           <tr>
             <td>threshold</td>
-            <td>Number|Boolean</td>
+            <td>Number | Boolean</td>
             <td>Max number of displayed toasts at a time (false to disable)</td>
             <td style="text-align:center">3</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>position</td>
+            <td>String</td>
+            <td>Position of toast messages</td>
+            <td style="text-align:center">‘bottom-left’</td>
+            <td>[‘top’, ‘bottom’] - [‘left’, ‘middle’, ‘right’]</td>
           </tr>
         </tbody>
       </table>
@@ -49,28 +61,34 @@
           <tr>
             <th>Prop</th>
             <th>Type</th>
+            <th style="text-align:center">Default</th>
+            <th>Possible</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>title</td>
             <td>String</td>
+            <td style="text-align:center">‘’</td>
+            <td></td>
           </tr>
           <tr>
-            <td>content</td>
+            <td>body</td>
             <td>String</td>
+            <td style="text-align:center">‘’</td>
+            <td></td>
           </tr>
           <tr>
-            <td>creator</td>
+            <td>footer</td>
             <td>String</td>
+            <td style="text-align:center">‘’</td>
+            <td></td>
           </tr>
           <tr>
             <td>level</td>
             <td>String</td>
-          </tr>
-          <tr>
-            <td>createdAt</td>
-            <td>Date</td>
+            <td style="text-align:center">‘info’</td>
+            <td>[‘info’, ‘warning’, ‘error’]</td>
           </tr>
         </tbody>
       </table>

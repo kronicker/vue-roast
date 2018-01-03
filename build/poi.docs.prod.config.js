@@ -1,10 +1,10 @@
 module.exports = {
-  entry: './src/docs/main.js',
+  entry: './docs/src/main.js',
   dist: './docs',
   html: {
-    template: './src/docs/index.html'
+    template: './docs/src/index.html'
   },
-  copy: { from: './src/docs/logo.png', to: 'logo.png' },
+  copy: { from: './docs/src/logo.png', to: 'logo.png' },
   filename: {
     js: '[name].min.js',
     css: '[name].css'

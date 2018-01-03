@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import VueRoast from '../';
+import 'wingcss';
 
 import App from './App.vue';
-import 'wingcss';
+import Vue from 'vue';
+import VueRoast from '../../src';
 
 Vue.use(VueRoast);
 

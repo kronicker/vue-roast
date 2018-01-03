@@ -23,7 +23,7 @@ Vue.use(VueRoast, config);
 | ------------- |---------------|--------------------|:--------:|-|
 | ttl           | Number        | Default toast message ttl  | 5000      |
 | threshold     | Number \| Boolean | Max number of displayed toasts at a time (false to disable) | 3 |
-| position      | String | Position of toast messages | 'bottom-left' | ['top', 'bottom']-['left', 'middle', 'right']
+| position      | String | Position of toast messages | 'bottom-left' | ['top', 'bottom'] - ['left', 'middle', 'right']
 
 ### API
 In component:
