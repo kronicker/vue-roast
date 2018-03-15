@@ -2,7 +2,7 @@ import 'wingcss';
 
 import App from './App.vue';
 import Vue from 'vue';
-import VueRoast from '../../src';
+import VueRoast from '../src';
 
 Vue.use(VueRoast);
 

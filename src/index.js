@@ -1,5 +1,5 @@
 import Timer from './Timer';
-import ToastContainer from './components/Container';
+import ToastContainer from './components/Container.vue';
 
 const DEFAULT_POSITION = 'bottom-left';
 const DEFAULT_TTL = 5000;
@@ -45,7 +45,7 @@ function toast(message = {}, options = {}) {
   if (cache.length === defaults.threshold) cache.shift();
   options.ttl = options.ttl || defaults.ttl;
 
-  const id = uniqueId(cache.map(el => el.id))
+  const id = uniqueId(cache.map(el => el.id));
   const timer = new Timer(options.ttl);
   cache[defaults.pushAction]({ id, message, options, timer });
 };
