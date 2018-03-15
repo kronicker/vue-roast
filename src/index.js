@@ -1,5 +1,5 @@
 import Timer from './Timer';
-import ToastContainer from './components/Container';
+import ToastContainer from './components/Container.vue';
 
 const DEFAULT_POSITION = 'bottom-left';
 const DEFAULT_TTL = 5000;
