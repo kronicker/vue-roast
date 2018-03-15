@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://vue-roast.js.org" target="_blank">
-    <img width="350"src="https://raw.githubusercontent.com/kronicker/vue-roast/master/docs/src/logo.png">
+    <img width="350"src="https://raw.githubusercontent.com/kronicker/vue-roast/master/docs/logo.png">
   </a>
 </p>
 
