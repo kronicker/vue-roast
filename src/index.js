@@ -45,7 +45,7 @@ function toast(message = {}, options = {}) {
   if (cache.length === defaults.threshold) cache.shift();
   options.ttl = options.ttl || defaults.ttl;
 
-  const id = uniqueId(cache.map(el => el.id))
+  const id = uniqueId(cache.map(el => el.id));
   const timer = new Timer(options.ttl);
   cache[defaults.pushAction]({ id, message, options, timer });
 };
