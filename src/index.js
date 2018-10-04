@@ -28,7 +28,7 @@ function uniqueId(exclude) {
   const id = Math.ceil(Date.now() * Math.random());
   if (exclude.includes(id)) return uniqueId(exclude);
   return id;
-};
+}
 
 /**
  * @param {Object} message - toast message
@@ -48,7 +48,7 @@ function toast(message = {}, options = {}) {
   const id = uniqueId(cache.map(el => el.id));
   const timer = new Timer(options.ttl);
   cache[defaults.pushAction]({ id, message, options, timer });
-};
+}
 
 export default {
   install(Vue, config = {}) {
